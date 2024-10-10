@@ -87,8 +87,13 @@ struct minHeap{
    }
 
    void print_heap(minHeap* heap) {
+    cout << "-------------------------------------" << endl;
+    cout << "|            Empleados              |" << endl;
+    cout << "-------------------------------------" << endl;
+    cout << "|     Nombre     |      Salario     |" << endl;
+    cout << "-------------------------------------" << endl;
     for (int i = 0; i < heap->size; i++) {
-        cout << heap->arr[i].name << " " << heap->arr[i].salary << endl;
+        cout << heap->arr[i].name << "     " << heap->arr[i].salary << endl;
     }
    }
 
@@ -109,37 +114,5 @@ void heapSort(minHeap* heap) {
     heap->size = originalSize;  
 }
 
-int findOne(minHeap* heap, Employee* employee) {
-    for(int i = 0; i < heap->size; i++) {
-        if(heap->arr[i].salary == employee->salary && heap->arr[i].name == employee->name) {
-            return i;
-        }
-    }
-
-    return -1;
-}
-
-void printElement(minHeap* heap, int i) {
-    cout << "Elemento encontrado: " << endl;
-    cout << "Nombre del empleado: " << heap->arr[i].name << endl;
-    cout << "Salario: " << heap->arr[i].salary << endl;
-}
-
-void deleteElement(minHeap* heap, int i) {
-    if (i < 0 || i >= heap->size) {
-        cout << "Invalid index";
-        return;
-    }
-
-    heap->arr[i] = heap->arr[heap->size - 1];
-    heap->size--;
-
-    minHeapify(heap, i);
-}
-
-void deleteOneEmployee(minHeap* heap, Employee* employee) {
-    int i = findOne(heap, employee);
-    deleteElement(heap, i);
-}
 
 #endif
