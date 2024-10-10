@@ -1,7 +1,10 @@
+#ifndef Employee_H
+#define Employee_H
+
 #include <string>
 #include <iostream>
 #include <fstream>
-#include <sstream>
+#include <
 
 using namespace std;
 
@@ -52,3 +55,4 @@ Employee* load_data() {
 
     return employees;
 }
+#endif
